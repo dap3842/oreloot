@@ -1,0 +1,168 @@
+schema-version: 1.0
+debug: false
+ores:
+  enabled: true
+  global-multipliers:
+    vein-size-multiplier: 0.2
+    veins-per-chunk-multiplier: 0.2
+  list:
+    coal_ore:
+      enabled: true
+      material: minecraft:coal_ore
+      deepslate-material: minecraft:deepslate_coal_ore
+      vein-size:
+        min: 2
+        max: 4
+      veins-per-chunk: 4
+      height:
+        min-y: 0
+        max-y: 96
+        distribution: uniform
+    iron_ore:
+      enabled: true
+      material: minecraft:iron_ore
+      deepslate-material: minecraft:deepslate_iron_ore
+      vein-size:
+        min: 1
+        max: 2
+      veins-per-chunk: 1
+      height:
+        min-y: -16
+        max-y: 16
+        distribution: triangle
+    copper_ore:
+      enabled: true
+      material: minecraft:copper_ore
+      deepslate-material: minecraft:deepslate_copper_ore
+      vein-size:
+        min: 1
+        max: 3
+      veins-per-chunk: 2
+      height:
+        min-y: -16
+        max-y: 48
+        distribution: triangle
+    gold_ore:
+      enabled: false
+      material: minecraft:gold_ore
+      deepslate-material: minecraft:deepslate_gold_ore
+      vein-size:
+        min: 1
+        max: 1
+      veins-per-chunk: 0
+      height:
+        min-y: -64
+        max-y: 0
+        distribution: triangle
+    diamond_ore:
+      enabled: false
+      material: minecraft:diamond_ore
+      deepslate-material: minecraft:deepslate_diamond_ore
+      vein-size:
+        min: 1
+        max: 1
+      veins-per-chunk: 0
+      height:
+        min-y: -64
+        max-y: -50
+        distribution: uniform
+    ancient_debris:
+      enabled: false
+      material: minecraft:ancient_debris
+      vein-size:
+        min: 1
+        max: 1
+      veins-per-chunk: 0
+      height:
+        min-y: 8
+        max-y: 16
+        distribution: uniform
+    emerald_ore:
+      enabled: false
+      material: minecraft:emerald_ore
+      deepslate-material: minecraft:deepslate_emerald_ore
+      vein-size:
+        min: 1
+        max: 1
+      veins-per-chunk: 0
+      height:
+        min-y: 0
+        max-y: 64
+        distribution: uniform
+global-loot:
+  enabled: true
+  blacklist:
+  - minecraft:diamond
+  - minecraft:diamond_block
+  - minecraft:diamond_ore
+  - minecraft:diamond_sword
+  - minecraft:diamond_pickaxe
+  - minecraft:diamond_axe
+  - minecraft:diamond_shovel
+  - minecraft:diamond_hoe
+  - minecraft:diamond_helmet
+  - minecraft:diamond_chestplate
+  - minecraft:diamond_leggings
+  - minecraft:diamond_boots
+  - minecraft:netherite_ingot
+  - minecraft:netherite_scrap
+  - minecraft:netherite_upgrade_smithing_template
+  - minecraft:gold_ingot
+  - minecraft:gold_block
+  - minecraft:golden_sword
+  - minecraft:golden_apple
+  - minecraft:enchanted_golden_apple
+  - minecraft:iron_ingot
+  - minecraft:iron_block
+  - minecraft:iron_sword
+  - minecraft:iron_pickaxe
+  - minecraft:iron_helmet
+  - minecraft:iron_chestplate
+  - minecraft:iron_leggings
+  - minecraft:iron_boots
+  - minecraft:emerald
+  - minecraft:emerald_block
+  - minecraft:ender_pearl
+  - minecraft:totem_of_undying
+  - minecraft:saddle
+  - minecraft:name_tag
+  - minecraft:experience_bottle
+  - minecraft:trident
+  - minecraft:heavy_core
+  - minecraft:bow
+  - minecraft:crossbow
+  - minecraft:arrow
+  on-detect: REPLACE_WITH_TRASH
+  trash-replacement-chance: 1.0
+  trash-pool:
+  - item: minecraft:rotten_flesh
+    weight: 50
+    count:
+      min: 1
+      max: 4
+  - item: minecraft:bone
+    weight: 35
+    count:
+      min: 1
+      max: 3
+  - item: minecraft:poisonous_potato
+    weight: 30
+    count:
+      min: 1
+      max: 3
+  - item: minecraft:string
+    weight: 20
+    count:
+      min: 1
+      max: 2
+  - item: minecraft:dirt
+    weight: 25
+    count:
+      min: 2
+      max: 5
+  - item: minecraft:stick
+    weight: 20
+    count:
+      min: 1
+      max: 4
+chests: {}
