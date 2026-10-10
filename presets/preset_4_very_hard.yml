@@ -129,3 +129,40 @@ global-loot:
       min: 1
       max: 2
 chests: {}
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: false
+  mode: WHITELIST
+  whitelist:
+  - minecraft:bane_of_arthropods
+  - minecraft:knockback
+  - minecraft:projectile_protection
+  - minecraft:unbreaking
+  replacements:
+  - from: minecraft:mending
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:sharpness
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:protection
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:efficiency
+    to: TRASH_POOL
+    chance: 1.0
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20

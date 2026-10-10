@@ -919,13 +919,55 @@
           </ul>
         </section>
 
+        <!-- SECTION: ENCHANTMENTS CONTROL -->
+        <section id="enchantments" class="doc-section">
+          <div class="section-header">
+            <div class="section-icon">✨</div>
+            <h2>6. Контроль чар на зачарованных книгах (Enchanted Books)</h2>
+          </div>
+          <p>В обновлении добавлен полный контроль зачарований, выпадающих на зачарованных книгах в сундуках, сокровищницах, хранилищах Vault и испытаниях Trial Chambers 1.21.1.</p>
+
+          <div class="callout callout-primary">
+            <div class="callout-title">Два основных режима и дополнительные возможности:</div>
+            <p><strong>1. Белый список (Whitelist):</strong> Разрешает появление только определенных чар из списка (по умолчанию 24 сбалансированных чары). Запрещенные чары автоматически заменяются или удаляются.</p>
+            <p><strong>2.1 Точечная замена чары:</strong> Замена конкретной читерской чары на другую конкретную (например, <em>Починка (Mending)</em> ➔ <em>Прочность (Unbreaking)</em> с настраиваемым шансом).</p>
+            <p><strong>2.2 Замена на пул других чар:</strong> Замена определенной чары на случайную из настраиваемого списка мусорных чар с весами (Бич членистоногих, Небесная кара, Отдача, Огнеупорность и др.).</p>
+            <p><strong>🚫 Полное отключение чар на книгах:</strong> Одной кнопкой можно полностью убрать зачарованные книги из мира — все выпадающие книги автоматически конвертируются в обычные ванильные книги (Material.BOOK)!</p>
+          </div>
+
+          <h3>Пошаговая настройка чар в веб-панели:</h3>
+          <ul class="steps-container">
+            <li class="step-item">
+              <h4>Перейдите во вкладку «✨ Чары на книгах»</h4>
+              <p>Вам откроется каталог всех 42 доступных чар Minecraft 1.21.1 с иконками, максимальными уровнями и текущим статусом.</p>
+            </li>
+            <li class="step-item">
+              <h4>Выберите действие для нужной чары</h4>
+              <p>У каждой чары есть переключатель из 4 вариантов:<br>
+                 • <strong>[✅ Белый список]</strong> — чара разрешена в луте.<br>
+                 • <strong>[🔄 2.1 Конкретная]</strong> — выберите из выпадающего списка, на какую чару подменять.<br>
+                 • <strong>[🎲 2.2 Пул]</strong> — подменять на случайную чару из общего пула мусора.<br>
+                 • <strong>[❌ Удалять]</strong> — снимать эту чару с книги при генерации.</p>
+            </li>
+            <li class="step-item">
+              <h4>Настройте общий пул чар-мусора (Trash Pool)</h4>
+              <p>Внизу страницы можно настроить веса для чар в пуле (Бич членистоногих, Кара, Отдача и др.) или добавить любые другие чары через быстрый поиск.</p>
+            </li>
+            <li class="step-item">
+              <h4>Примените изменения</h4>
+              <p>Нажмите <strong>«💾 Сохранить config.yml»</strong> и в игре выполните <code>/oreloot reload</code>.</p>
+            </li>
+          </ul>
+        </section>
+
         <!-- SECTION: PRESETS -->
         <section id="presets" class="doc-section">
           <div class="section-header">
             <div class="section-icon">🔥</div>
-            <h2>6. Пять готовых пресетов ухудшения лута и руд</h2>
+            <h2>7. Пять готовых пресетов ухудшения лута и руд</h2>
           </div>
           <p>Все 5 вариантов ориентированы на усложнение выживания и дефицит ресурсов. Нажмите на любой пресет, чтобы раскрыть его детали и скопировать YAML, или сразу нажмите <strong>«Скачать .yml»</strong>:</p>
+
 
           <div class="media-box">
             <img src="assets/diagrams/presets_chart.png" alt="Сравнение пресетов">
@@ -1082,6 +1124,60 @@ chests:
     - item: minecraft:diamond
       max-per-chest: 2
       max-per-stack: 1
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: false
+  mode: WHITELIST
+  whitelist:
+  - minecraft:riptide
+  - minecraft:channeling
+  - minecraft:frost_walker
+  - minecraft:smite
+  - minecraft:bane_of_arthropods
+  - minecraft:multishot
+  - minecraft:knockback
+  - minecraft:punch
+  - minecraft:blast_protection
+  - minecraft:fire_protection
+  - minecraft:projectile_protection
+  - minecraft:feather_falling
+  - minecraft:silk_touch
+  - minecraft:luck_of_the_sea
+  - minecraft:efficiency
+  - minecraft:quick_charge
+  - minecraft:lure
+  - minecraft:respiration
+  - minecraft:aqua_affinity
+  - minecraft:soul_speed
+  - minecraft:swift_sneak
+  - minecraft:depth_strider
+  - minecraft:loyalty
+  - minecraft:unbreaking
+  replacements:
+  - from: minecraft:mending
+    to: minecraft:unbreaking
+    chance: 1.0
+  - from: minecraft:sharpness
+    to: TRASH_POOL
+    chance: 0.8
+  - from: minecraft:protection
+    to: TRASH_POOL
+    chance: 0.8
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20
 </pre>
               </div>
             </div>
@@ -1196,6 +1292,64 @@ chests:
     - item: minecraft:iron_ingot
       max-per-chest: 3
       max-per-stack: 2
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: false
+  mode: WHITELIST
+  whitelist:
+  - minecraft:riptide
+  - minecraft:channeling
+  - minecraft:frost_walker
+  - minecraft:smite
+  - minecraft:bane_of_arthropods
+  - minecraft:multishot
+  - minecraft:knockback
+  - minecraft:punch
+  - minecraft:blast_protection
+  - minecraft:fire_protection
+  - minecraft:projectile_protection
+  - minecraft:feather_falling
+  - minecraft:luck_of_the_sea
+  - minecraft:efficiency
+  - minecraft:quick_charge
+  - minecraft:lure
+  - minecraft:respiration
+  - minecraft:aqua_affinity
+  - minecraft:soul_speed
+  - minecraft:depth_strider
+  - minecraft:loyalty
+  - minecraft:unbreaking
+  replacements:
+  - from: minecraft:mending
+    to: minecraft:unbreaking
+    chance: 1.0
+  - from: minecraft:sharpness
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:protection
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:looting
+    to: TRASH_POOL
+    chance: 0.9
+  - from: minecraft:fortune
+    to: TRASH_POOL
+    chance: 0.9
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20
 </pre>
               </div>
             </div>
@@ -1349,6 +1503,55 @@ chests:
     - item: minecraft:echo_shard
       max-per-chest: 1
       max-per-stack: 1
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: false
+  mode: WHITELIST
+  whitelist:
+  - minecraft:unbreaking
+  - minecraft:efficiency
+  - minecraft:feather_falling
+  - minecraft:respiration
+  - minecraft:aqua_affinity
+  - minecraft:smite
+  - minecraft:bane_of_arthropods
+  replacements:
+  - from: minecraft:mending
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:sharpness
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:protection
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:fortune
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:looting
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:infinity
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:power
+    to: TRASH_POOL
+    chance: 1.0
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20
 </pre>
               </div>
             </div>
@@ -1504,6 +1707,43 @@ global-loot:
       min: 1
       max: 2
 chests: {}
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: false
+  mode: WHITELIST
+  whitelist:
+  - minecraft:bane_of_arthropods
+  - minecraft:knockback
+  - minecraft:projectile_protection
+  - minecraft:unbreaking
+  replacements:
+  - from: minecraft:mending
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:sharpness
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:protection
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:efficiency
+    to: TRASH_POOL
+    chance: 1.0
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20
 </pre>
               </div>
             </div>
@@ -1696,6 +1936,27 @@ global-loot:
       min: 1
       max: 4
 chests: {}
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: true
+  mode: WHITELIST
+  whitelist: []
+  replacements: []
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20
 </pre>
               </div>
             </div>

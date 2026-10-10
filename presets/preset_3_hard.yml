@@ -127,3 +127,52 @@ chests:
     - item: minecraft:echo_shard
       max-per-chest: 1
       max-per-stack: 1
+enchantments:
+  enabled: true
+  disable-all-book-enchantments: false
+  mode: WHITELIST
+  whitelist:
+  - minecraft:unbreaking
+  - minecraft:efficiency
+  - minecraft:feather_falling
+  - minecraft:respiration
+  - minecraft:aqua_affinity
+  - minecraft:smite
+  - minecraft:bane_of_arthropods
+  replacements:
+  - from: minecraft:mending
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:sharpness
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:protection
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:fortune
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:looting
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:infinity
+    to: TRASH_POOL
+    chance: 1.0
+  - from: minecraft:power
+    to: TRASH_POOL
+    chance: 1.0
+  trash-pool:
+  - enchantment: minecraft:bane_of_arthropods
+    weight: 30
+  - enchantment: minecraft:smite
+    weight: 25
+  - enchantment: minecraft:knockback
+    weight: 20
+  - enchantment: minecraft:punch
+    weight: 20
+  - enchantment: minecraft:fire_protection
+    weight: 20
+  - enchantment: minecraft:blast_protection
+    weight: 20
+  - enchantment: minecraft:projectile_protection
+    weight: 20
